@@ -3,14 +3,18 @@ import styled from "styled-components";
 
 function User({ users }) {
   return (
-    <Box>
+    <Box className="BOX">
       {users.map((item, index) => (
         <Container key={index}>
-          <UserImage src={item.avatar} alt={item.first_name} />
+          <UserImage src={item.imageLink} alt={item.first_name} />
           <UserDetail>
-            <div className="first-name">{`${item.first_name}                
-                                   ${item.last_name}`}</div>
-            <div className="last-name">{item.email}</div>
+            <div>{item.name}</div>
+            <div>{item.email}</div>
+            <div>{item.website}</div>
+            <div>{item.gender}</div>
+            {item.skills.map((item, index) => {
+              return <div key={index}>{item}</div>;
+            })}
           </UserDetail>
         </Container>
       ))}
@@ -22,9 +26,11 @@ export default User;
 
 const Box = styled.div`
   display: flex;
-  width: 80%;
+  width: 50%;
   flex-wrap: wrap;
   align-items: center;
+  position: relative;
+  left: 200px;
 `;
 
 const Container = styled.div`

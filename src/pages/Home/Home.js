@@ -1,7 +1,7 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import styled from "styled-components";
 import Navbar from "./components/Navbar";
+import RegForm from "./components/RegForm";
 import User from "./components/User";
 
 function Home() {
@@ -11,6 +11,7 @@ function Home() {
     <React.Fragment>
       <Navbar />
       <Section>
+        <RegForm users={users} setUsers={setUsers} />
         <User users={users} />
       </Section>
     </React.Fragment>
